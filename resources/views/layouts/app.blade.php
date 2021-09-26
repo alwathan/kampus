@@ -51,6 +51,8 @@
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
 
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>
 
@@ -89,7 +91,20 @@
 								<div class="header-column justify-content-end d-none d-lg-inline-flex">
 									<div class="header-row">
 										<ul class="header-extra-info d-flex align-items-center pt-3 pb-3">
-											<li class="d-none d-sm-inline-flex ml-0">
+                                        @auth
+                                           
+                                            <li class="d-none d-sm-inline-flex ml-0">
+												<div class="header-extra-info-text">
+													<label>Hai</label>
+													<strong class="text-uppercase text-2">
+														<a class="pr-3" href="/admin"  title="{{ Auth::user()->name }}"><i class="fa fa-user"></i> <span>{{ Auth::user()->email }}</span></a>
+                                                        <a class="pr-3" href="/logout"  title="Keluar"><i class="fa fa-signout"></i> <span>Keluar</span></a>
+													</strong>
+												</div>
+											</li>
+                                        @else
+                                            
+                                            <li class="d-none d-sm-inline-flex ml-0">
 												<div class="header-extra-info-icon">
 													<i class="icon-share icons text-color-primary"></i>
 												</div>
@@ -102,6 +117,8 @@
 													</strong>
 												</div>
 											</li>
+                                        @endauth
+											
 										</ul>
 									</div>
 								</div>
@@ -113,7 +130,7 @@
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo mt-0 mb-0">
-										<a href="index.html">
+										<a href="/">
 											<img alt="Porto" width="296" height="65" data-sticky-width="200" data-sticky-height="45" src="img/logo.png">
 										</a>
 									</div>
@@ -1005,173 +1022,7 @@
 			</header>
 
 			<div role="main" class="main">
-				<div class="slider-container rev_slider_wrapper" style="height: 670px;">
-					<div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 670, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1200,992,500], 'parallax': { 'type': 'scroll', 'origo': 'enterpoint', 'speed': 1000, 'levels': [2,3,4,5,6,7,8,9,12,50], 'disable_onmobile': 'on' }, 'navigation' : {'arrows': { 'enable': true }, 'bullets': {'enable': true, 'style': 'bullets-style-1', 'h_align': 'center', 'v_align': 'bottom', 'space': 7, 'v_offset': 70, 'h_offset': 0}}}">
-						<ul>
-							
-							<li class="slide-overlay" data-transition="fade">
-								<img src="img/blank.gif"  
-									alt=""
-									data-bgposition="center center" 
-									data-bgfit="cover" 
-									data-bgrepeat="no-repeat" 
-									class="rev-slidebg">
 
-								<div class="rs-background-video-layer" 
-									data-forcerewind="on" 
-									data-volume="mute" 
-									data-videowidth="100%" 
-									data-videoheight="100%" 
-									data-videomp4="video/c.mp4" 
-									data-videopreload="preload" 
-									data-videoloop="loop" 
-									data-forceCover="1" 
-									data-aspectratio="16:9" 
-									data-autoplay="true" 
-									data-autoplayonlyfirsttime="false" 
-									data-nextslideatend="false">
-								</div>
-								
-								<div class="tp-caption"
-									data-x="center" data-hoffset="['-125','-125','-125','-215']"
-									data-y="center" data-voffset="['-50','-50','-50','-75']"
-									data-start="1000"
-									data-transform_in="x:[-300%];opacity:0;s:500;"
-									data-transform_idle="opacity:0.2;s:500;" style="z-index: 5;"><img src="img/slides/slide-title-border.png" alt=""></div>
-
-								<div class="tp-caption text-color-light font-weight-normal"
-									data-x="center"
-									data-y="center" data-voffset="['-50','-50','-50','-75']"
-									data-start="700"
-									data-fontsize="['22','22','22','40']"
-									data-lineheight="['25','25','25','45']"
-									data-transform_in="y:[-50%];opacity:0;s:500;" style="z-index: 5;">Selamat Datang di Website</div>
-
-								
-								<div class="tp-caption"
-									data-x="center" data-hoffset="['125','125','125','215']"
-									data-y="center" data-voffset="['-50','-50','-50','-75']"
-									data-start="1000"
-									data-transform_in="x:[300%];opacity:0;s:500;"
-									data-transform_idle="opacity:0.2;s:500;" style="z-index: 5;"><img src="img/slides/slide-title-border.png" alt=""></div>
-
-								<div class="tp-caption font-weight-extra-bold text-color-light negative-ls-2"
-									data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-									data-x="center"
-									data-y="center"
-									data-fontsize="['50','50','50','90']"
-									data-lineheight="['55','55','55','95']" style="z-index: 5;">I N K A D H A </div>
-
-								<div class="tp-caption font-weight-light"
-									data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2000,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-									data-x="center"
-									data-y="center" data-voffset="['40','40','40','80']"
-									data-fontsize="['18','18','18','50']"
-									data-lineheight="['20','20','20','55']"
-									style="color: #b5b5b5; z-index: 5;">Institut Kariman Wirayudha, Gapura Sumenep</div>
-								
-								<a class="tp-caption slider-scroll-button"
-									data-hash
-									data-hash-offset="80"
-									href="#main"
-									data-x="center"
-									data-y="bottom" data-voffset="['30','30','30','30']"
-									data-start="1600"					 
-									data-transform_in="y:[100%];s:500;"
-									data-transform_out="y:[100%];opacity:0;s:500;"
-									data-mask_in="x:0px;y:0px;" style="z-index: 5;"></a>
-
-								<div class="tp-dottedoverlay tp-opacity-overlay"></div>
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-				<!--
-				<div class="home-intro bg-primary" id="home-intro">
-					<div class="container">
-				
-						<div class="row align-items-center">
-							<div class="col-lg-8">
-								<p>
-									The fastest way to grow your business with the leader in <span class="highlighted-word">Technology</span>
-									<span>Check out our options and features included.</span>
-								</p>
-							</div>
-							<div class="col-lg-4">
-								<div class="get-started text-left text-lg-right">
-									<a href="#" class="btn btn-dark btn-lg text-3 font-weight-semibold px-4 py-3">Get Started Now</a>
-									<div class="learn-more">or <a href="index.html">learn more.</a></div>
-								</div>
-							</div>
-						</div>
-				
-					</div>
-				</div>
-				<div class="container">
-				
-					<div class="row text-center pt-3">
-						<div class="col-md-10 mx-md-auto">
-							<h1 class="word-rotator slide font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter">
-								<span>Porto is </span>
-								<span class="word-rotator-words bg-dark">
-									<b class="is-visible">incredibly</b>
-									<b>especially</b>
-									<b>extremely</b>
-								</span>
-								<span> beautiful and fully responsive.</span>
-							</h1>
-							<p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
-							</p>
-						</div>
-					</div>
-				
-				</div>
-				
-				<div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
-					<div class="home-concept mt-5">
-						<div class="container">
-				
-							<div class="row text-center">
-								<span class="sun"></span>
-								<span class="cloud"></span>
-								<div class="col-lg-2 ml-lg-auto">
-									<div class="process-image">
-										<img src="img/home/home-concept-item-1.png" alt="" />
-										<strong>Strategy</strong>
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<div class="process-image process-image-on-middle">
-										<img src="img/home/home-concept-item-2.png" alt="" />
-										<strong>Planning</strong>
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<div class="process-image">
-										<img src="img/home/home-concept-item-3.png" alt="" />
-										<strong>Build</strong>
-									</div>
-								</div>
-								<div class="col-lg-4 ml-lg-auto">
-									<div class="project-image">
-										<div id="fcSlideshow" class="fc-slideshow">
-											<ul class="fc-slides">
-												<li><a href="portfolio-single-wide-slider.html"><img class="img-responsive" src="img/projects/project-home-1.jpg" alt="" /></a></li>
-												<li><a href="portfolio-single-wide-slider.html"><img class="img-responsive" src="img/projects/project-home-2.jpg" alt="" /></a></li>
-												<li><a href="portfolio-single-wide-slider.html"><img class="img-responsive" src="img/projects/project-home-3.jpg" alt="" /></a></li>
-											</ul>
-										</div>
-										<strong class="our-work">Our Work</strong>
-									</div>
-								</div>
-							</div>
-				
-						</div>
-					</div>
-				</div>
--->
                 @yield('content')
 				
 			</div>
@@ -1251,6 +1102,8 @@
 		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="vendor/vide/jquery.vide.min.js"></script>
 		<script src="vendor/vivus/vivus.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="js/theme.js"></script>
@@ -1278,6 +1131,44 @@
 			ga('send', 'pageview');
 		</script>
 		 -->
+
+        <script>
+            @if(Session::has('message'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.success("{{ session('message') }}");
+            @endif
+
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.error("{{ session('error') }}");
+            @endif
+
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.info("{{ session('info') }}");
+            @endif
+
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.warning("{{ session('warning') }}");
+            @endif
+        </script>
 
 	</body>
 </html>

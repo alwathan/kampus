@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,30 @@ Route::prefix('')->group(function () {
         return view('home');
     });
    
-    Route::get('/admin', function () {
-        return view('admin');
-    })->middleware('auth');
+    Route::middleware('auth')->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::get('/', [PostController::class, 'index']);
+            Route::resources([
+                'posts' => PostController::class
+            ]);
+        });
+    });
 
     Route::resources([
-        'login' => LoginController::class,
-        'posts' => PostController::class,
+        'login' => LoginController::class
     ]);
 
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout']);
 });
+
+
+/*
+GET	/photos	index	photos.index
+GET	/photos/create	create	photos.create
+POST	/photos	store	photos.store
+GET	/photos/{photo}	show	photos.show
+GET	/photos/{photo}/edit	edit	photos.edit
+PUT/PATCH	/photos/{photo}	update	photos.update
+DELETE	/photos/{photo}	destroy	photos.destroy
+*/

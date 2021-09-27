@@ -22,39 +22,39 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
-		<link rel="stylesheet" href="vendor/animate/animate.min.css">
-		<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
-		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
-		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
-		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="/vendor/animate/animate.min.css">
+		<link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.min.css">
+		<link rel="stylesheet" href="/vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="/vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="/vendor/magnific-popup/magnific-popup.min.css">
 
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="css/theme.css">
-		<link rel="stylesheet" href="css/theme-elements.css">
-		<link rel="stylesheet" href="css/theme-blog.css">
-		<link rel="stylesheet" href="css/theme-shop.css">
+		<link rel="stylesheet" href="/css/theme.css">
+		<link rel="stylesheet" href="/css/theme-elements.css">
+		<link rel="stylesheet" href="/css/theme-blog.css">
+		<link rel="stylesheet" href="/css/theme-shop.css">
 
 		<!-- Current Page CSS -->
-		<link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
-		<link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
-		<link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
-		<link rel="stylesheet" href="vendor/circle-flip-slideshow/css/component.css">
+		<link rel="stylesheet" href="/vendor/rs-plugin/css/settings.css">
+		<link rel="stylesheet" href="/vendor/rs-plugin/css/layers.css">
+		<link rel="stylesheet" href="/vendor/rs-plugin/css/navigation.css">
+		<link rel="stylesheet" href="/vendor/circle-flip-slideshow/css/component.css">
 		
 		<!-- Demo CSS -->
 
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="css/skins/default.css"> 
+		<link rel="stylesheet" href="/css/skins/default.css"> 
 
 		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="/css/custom.css">
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 		<!-- Head Libs -->
-		<script src="vendor/modernizr/modernizr.min.js"></script>
+		<script src="/vendor/modernizr/modernizr.min.js"></script>
 
 	</head>
 	<body>
@@ -131,7 +131,7 @@
 								<div class="header-row">
 									<div class="header-logo mt-0 mb-0">
 										<a href="/">
-											<img alt="Porto" width="296" height="65" data-sticky-width="200" data-sticky-height="45" src="img/logo.png">
+											<img alt="Porto" width="296" height="65" data-sticky-width="200" data-sticky-height="45" src="/img/logo.png">
 										</a>
 									</div>
 								</div>
@@ -1032,7 +1032,7 @@
 					
 					<div class="row py-5 my-4">
 						<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-							<img src="img/logo.png" width="200">
+							<img src="/img/logo.png" width="200">
 						</div>
 						
 						<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -1086,39 +1086,39 @@
 		</div>
 
 		<!-- Vendor -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
-		<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-		<script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
-		<script src="vendor/popper/umd/popper.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="vendor/common/common.min.js"></script>
-		<script src="vendor/jquery.validation/jquery.validate.min.js"></script>
-		<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-		<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
-		<script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
-		<script src="vendor/isotope/jquery.isotope.min.js"></script>
-		<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script src="vendor/vide/jquery.vide.min.js"></script>
-		<script src="vendor/vivus/vivus.min.js"></script>
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/jquery.appear/jquery.appear.min.js"></script>
+		<script src="/vendor/jquery.easing/jquery.easing.min.js"></script>
+		<script src="/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+		<script src="/vendor/popper/umd/popper.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/vendor/common/common.min.js"></script>
+		<script src="/vendor/jquery.validation/jquery.validate.min.js"></script>
+		<script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script src="/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+		<script src="/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+		<script src="/vendor/isotope/jquery.isotope.min.js"></script>
+		<script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
+		<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="/vendor/vide/jquery.vide.min.js"></script>
+		<script src="/vendor/vivus/vivus.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 		
 		<!-- Theme Base, Components and Settings -->
-		<script src="js/theme.js"></script>
+		<script src="/js/theme.js"></script>
 		
 		<!-- Current Page Vendor and Views -->
-		<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-		<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
-		<script src="js/views/view.home.js"></script>
+		<script src="/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script src="/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
+		<script src="/js/views/view.home.js"></script>
 
 		<!-- Theme Custom -->
-		<script src="js/custom.js"></script>
+		<script src="/js/custom.js"></script>
 		
 		<!-- Theme Initialization Files -->
-		<script src="js/theme.init.js"></script>
+		<script src="/js/theme.init.js"></script>
 
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 		<script>

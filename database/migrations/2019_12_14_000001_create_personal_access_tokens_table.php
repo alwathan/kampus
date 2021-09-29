@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class CreatePersonalAccessTokensTable extends Migration
 {
@@ -24,13 +22,6 @@ class CreatePersonalAccessTokensTable extends Migration
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
         });
-
-        $user = new User;
-
-        $user->email = 'jazuli.gh@gmail.com';
-        $user->password = Hash::make('jazuli');
-
-        $user->save();
     }
 
     /**

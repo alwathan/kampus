@@ -4,9 +4,9 @@
 
 @section('css-js')
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-    <script src="/ckfinder/ckfinder.js"></script>
-	
+    @include('ckfinder::setup')
 @endsection
+
 @section('content-admin')
 							
 							
@@ -16,6 +16,7 @@
 									<input type='hidden' name='id' value='{{ $data->id }}'>
 								@endif
 								<input type='hidden' name='user_id' value='{{ Auth::user()->id }}'>
+								<input type='text' name='user_id' value="{{ config('app.url') }}">
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="font-weight-bold text-dark text-2">Judul</label>
@@ -25,7 +26,7 @@
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="required font-weight-bold text-dark text-2">Konten</label>
-										<textarea id="editor"  maxlength="5000" placeholder="Isi posting." rows="8" class="form-control" name="content" required="">{{ $data->content}}</textarea>
+										<textarea id="ckeditor"  maxlength="5000" placeholder="Isi posting." rows="8" class="form-control" name="content" required="">{{ $data->content}}</textarea>
 									</div>
 								</div>
 								<div class="form-row">
@@ -39,13 +40,15 @@
     <script>
 		
         ClassicEditor
-			.create( document.querySelector( '#editor' ), {
-				
+			.create( document.querySelector( '#ckeditor' ), {
 				ckfinder: {
-					 
-					uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+					uploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json',
 				},
-				toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo','MediaEmbed' ]
+				toolbar: [ 	'bold', 'italic', 'strikethrough', 'underline', '|', 
+							'ckfinder', 'imageUpload', '|', 'heading', '|', 
+							'bold', 'italic', '|', 
+							'undo', 'redo','MediaEmbed' 
+						 ]
 			} )
 			.catch( error => {
 				console.error( error );

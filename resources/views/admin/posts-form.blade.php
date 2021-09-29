@@ -16,7 +16,6 @@
 									<input type='hidden' name='id' value='{{ $data->id }}'>
 								@endif
 								<input type='hidden' name='user_id' value='{{ Auth::user()->id }}'>
-								<input type='text' name='user_id' value="{{ config('app.url') }}">
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="font-weight-bold text-dark text-2">Judul</label>
@@ -44,11 +43,19 @@
 				ckfinder: {
 					uploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json',
 				},
-				toolbar: [ 	'bold', 'italic', 'strikethrough', 'underline', '|', 
-							'ckfinder', 'imageUpload', '|', 'heading', '|', 
-							'bold', 'italic', '|', 
-							'undo', 'redo','MediaEmbed' 
-						 ]
+				toolbar: {
+					items: [
+						'heading', '|',
+						'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+						'bulletedList', 'numberedList', 'todoList', '|',
+						'outdent', 'indent', '|',
+						'code', 'codeBlock', '|',
+						'link', 'uploadImage', 'MediaEmbed', 'ckfinder', 'insertTable', 'blockQuote', '|',
+						'undo', 'redo'
+					],
+					shouldNotGroupWhenFull: true
+				}
+				
 			} )
 			.catch( error => {
 				console.error( error );

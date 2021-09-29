@@ -15,6 +15,8 @@ use App\Http\Controllers\PostController;
 |
 */
 
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
 Route::prefix('')->group(function () {
     Route::get('/', function () {
         return view('home');
@@ -26,16 +28,15 @@ Route::prefix('')->group(function () {
             Route::resources([
                 'posts' => PostController::class
             ]);
+            Route::post('upload_image',[PostController::class, 'uploadImage'])->name('upload');
         });
     });
-
-    Route::resources([
-        'login' => LoginController::class
-    ]);
 
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout']);
 });
+
+
 
 
 /*

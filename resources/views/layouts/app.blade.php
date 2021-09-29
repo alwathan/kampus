@@ -56,6 +56,8 @@
 		<!-- Head Libs -->
 		<script src="/vendor/modernizr/modernizr.min.js"></script>
 
+		@yield('css-js')
+
 	</head>
 	<body>
 		<div class="body">

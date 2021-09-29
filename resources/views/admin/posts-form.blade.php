@@ -1,5 +1,12 @@
 @extends('admin')
 
+@section('title', 'Buat Posting')
+
+@section('css-js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <script src="/ckfinder/ckfinder.js"></script>
+	
+@endsection
 @section('content-admin')
 							
 							
@@ -18,7 +25,7 @@
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="required font-weight-bold text-dark text-2">Konten</label>
-										<textarea  maxlength="5000" placeholder="Isi posting." rows="8" class="form-control" name="content" required="">{{ $data->content}}</textarea>
+										<textarea id="editor"  maxlength="5000" placeholder="Isi posting." rows="8" class="form-control" name="content" required="">{{ $data->content}}</textarea>
 									</div>
 								</div>
 								<div class="form-row">
@@ -27,6 +34,23 @@
 									</div>
 								</div>
 							</form>
+
+						
+    <script>
+		
+        ClassicEditor
+			.create( document.querySelector( '#editor' ), {
+				
+				ckfinder: {
+					 
+					uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+				},
+				toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo','MediaEmbed' ]
+			} )
+			.catch( error => {
+				console.error( error );
+			} );
+    </script>
 
 					
 @endsection

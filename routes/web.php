@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 
@@ -35,6 +38,46 @@ Route::prefix('')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout']);
 });
+
+Route::get('/image_manipulaton/{name}', function (Request $request){
+
+      // according to path your image file
+      $img = Image::make($request->name);
+
+      //manipulate image
+      $img->resize($request->width, $request->height, function ($constraint) {
+          $constraint->aspectRatio();
+      });
+
+      // create response and add encoded image data
+      $response = Response::make($img->encode('jpg'));
+
+      // set content-type
+      $response->header('Content-Type', 'image/jpg');
+
+      // output
+      return $response;
+  });
+
+Route::get('/rimg/{w}/{h}/{url}', function (Request $request,$url) {
+    //
+    $img = Image::make($request->url);
+
+    //manipulate image
+    $img->fit($request->w, $request->h, function ($constraint) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+    });
+
+    // create response and add encoded image data
+    $response = Response::make($img->encode('jpg'));
+
+    // set content-type
+    $response->header('Content-Type', 'image/jpg');
+
+    // output
+    return $response;
+})->where('url', '.*');
 
 
 

@@ -5,6 +5,11 @@
 @section('css-js')
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     @include('ckfinder::setup')
+	<style>
+		.ck-editor__editable {
+			min-height: 200px;
+		}
+	</style>
 @endsection
 
 @section('content-admin')
@@ -43,8 +48,7 @@
 				ckfinder: {
 					uploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json',
 				},
-				toolbar: {
-					items: [
+				toolbar: [
 						'heading', '|',
 						'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
 						'bulletedList', 'numberedList', 'todoList', '|',
@@ -52,9 +56,7 @@
 						'code', 'codeBlock', '|',
 						'link', 'uploadImage', 'MediaEmbed', 'ckfinder', 'insertTable', 'blockQuote', '|',
 						'undo', 'redo'
-					],
-					shouldNotGroupWhenFull: true
-				}
+					]
 				
 			} )
 			.catch( error => {

@@ -51,8 +51,8 @@ class PostController extends Controller
             Post::create($request->except('_token'));
             return redirect('/admin/posts')->with('success', 'Berhasil menambahkan data baru!');
         }else{
-            Post::where('id', $request->id)
-                ->update($request->except('_token','id'));
+            $post = Post::find($request->id);
+            $post->update($request->except('_token','id'));
             return redirect()->back()->with('success', 'Berhasil mengupdate data!');
         }        
     }

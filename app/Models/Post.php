@@ -26,9 +26,14 @@ class Post extends Model
     {
         parent::boot();
   
-        static::created(function ($post) {
+        static::creating(function ($post) {
             $post->slug = $post->createSlug($post->title);
-            $post->save();
+            $post->media = $post->createMedia($post->content);
+            //$post->save();
+        });
+        static::updating(function ($post) {
+            $post->media = $post->createMedia($post->content);
+            //$post->save();
         });
     }
   
@@ -51,6 +56,11 @@ class Post extends Model
         }
   
         return $slug;
+    }
+
+    private function createMedia($html){
+        preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $html, $image);
+        return $image[1];
     }
 
 }

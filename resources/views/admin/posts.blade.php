@@ -9,10 +9,10 @@
 </div>
                      @foreach($posts as $post)
                         <div class="media mt-4">
-								<img class="align-self-center mr-3" src="..." alt="Generic placeholder image">
+								<img class="align-self-center mr-3" src="/rimg/180/120/{{ $post->media }}" alt="Generic placeholder image">
 								<div class="media-body">
 									<h5 class="mt-0"><a class="tag" href="{{ $post->slug }}">{{ $post->title }}</a></h5>
-									<p>{{ $post->content }}</p>
+									<p>{{ cut($post->content,30) }}</p>
                                 </div>
 							</div>
                         <div class="d-flex justify-content-end">

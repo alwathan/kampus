@@ -19,11 +19,10 @@
 									<div class="collapse navbar-collapse" id="navbarSupportedContent">
 										
 										<ul class="nav nav-list flex-column sort-source mb-5" data-sort-id="portfolio" data-option-key="filter" data-plugin-options="{'layoutMode': 'fitRows', 'filter': '*'}">
-											<li class="nav-item" data-option-value="*"><a class="nav-link active" href="/admin">Pos</a></li>
-											<li class="nav-item" data-option-value=".websites"><a class="nav-link" href="#">Halaman</a></li>
-											<li class="nav-item" data-option-value=".logos"><a class="nav-link" href="#">Logos</a></li>
-											<li class="nav-item" data-option-value=".brands"><a class="nav-link" href="#">Brands</a></li>
-											<li class="nav-item" data-option-value=".medias"><a class="nav-link" href="#">Medias</a></li>
+											<li class="nav-item" data-option-value="*"><a class="nav-link {{ (request()->is('admin/posts*')) ? 'active' : '' }} {{ (request()->is('admin')) ? 'active' : '' }}" href="/admin/posts">Pos</a></li>
+											<li class="nav-item" data-option-value=".logos"><a class="nav-link {{ (request()->is('admin/menus*')) ? 'active' : '' }}" href="/admin/menus">Menu</a></li>
+											<li class="nav-item" data-option-value=".brands"><a class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}" href="/admin/users">Pengguna</a></li>
+											<li class="nav-item" data-option-value=".medias"><a class="nav-link {{ (request()->is('admin/settings*')) ? 'active' : '' }}" href="/admin/settings">Pengaturan</a></li>
 										</ul>
 									</div>
 								</aside>

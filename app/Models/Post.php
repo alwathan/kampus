@@ -60,7 +60,7 @@ class Post extends Model
 
     private function createMedia($html){
         preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $html, $image);
-        return $image[1];
+        return empty($image[1])?'':$image[1];
     }
 
 }

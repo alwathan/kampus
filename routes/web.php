@@ -24,12 +24,18 @@ Route::prefix('')->group(function () {
     Route::get('/', function () {
         return view('home');
     });
-   
+
     Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [PostController::class, 'index']);
             Route::resources([
                 'posts' => PostController::class
+            ]);
+            Route::resources([
+                'menus' => App\Http\Controllers\MenuController::class
+            ]);
+            Route::resources([
+                'users' => App\Http\Controllers\UserController::class
             ]);
             Route::post('upload_image',[PostController::class, 'uploadImage'])->name('upload');
         });
@@ -79,7 +85,15 @@ Route::get('/rimg/{w}/{h}/{url}', function (Request $request,$url) {
     return $response;
 })->where('url', '.*');
 
+Route::group(['middleware'=>'CustomCKFinderAuth'], function(){
+    Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+        ->name('ckfinder_connector');
 
+    Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+        ->name('ckfinder_browser');
+});
+
+Route::get('/{slug}', [App\Http\Controllers\MenuController::class, 'show']);
 
 
 /*

@@ -1,5 +1,5 @@
 @extends('admin')
-
+@section('title', 'Data Artikel')
 @section('content-admin')
 
 

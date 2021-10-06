@@ -153,9 +153,12 @@
 																@case('halaman')
 																	<a class="dropdown-item {{ get_menu($menu->id)?'dropdown-toggle':'' }}" href="/{{ $menu->slug }}">{{ $menu->nama }}</a>
 																	@break
-																@case('induk')
+                                                                @case('induk')
 																	<a class="dropdown-item {{ get_menu($menu->id)?'dropdown-toggle':'' }}" href="#">{{ $menu->nama }}</a>
 																	@break
+                                                                @case('kategori')
+                                                                    <a class="dropdown-item" href="/{{ $menu->slug }}">{{ $menu->nama }}</a>
+                                                                    @break
 																@default
 																	<a class="dropdown-item {{ get_menu($menu->id)?'dropdown-toggle':'' }}" href="#">{{ $menu->nama }}</a>
 															@endswitch
@@ -168,8 +171,11 @@
 																				<a class="dropdown-item" href="{{ $sm1->url }}">{{ $sm1->nama }}</a>
 																				@break
 																			@case('halaman')
-																				<a class="dropdown-item" href="{{ $sm1->slug }}">{{ $sm1->nama }}</a>
+																				<a class="dropdown-item" href="/{{ $sm1->slug }}">{{ $sm1->nama }}</a>
 																				@break
+                                                                            @case('kategori')
+                                                                                <a class="dropdown-item" href="/{{ $sm1->slug }}">{{ $sm1->nama }}</a>
+                                                                                @break
 																			@case('induk')
 																				<a class="dropdown-item" href="#">{{ $sm1->nama }}</a>
 																				@break

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'user_id',
         'slug',
@@ -17,6 +17,7 @@ class Post extends Model
         'content',
         'media',
         'type',
+        'published_at',
     ];
 
      /**
@@ -25,7 +26,7 @@ class Post extends Model
     protected static function boot()
     {
         parent::boot();
-  
+
         static::creating(function ($post) {
             $post->slug = $post->createSlug($post->title);
             $post->media = $post->createMedia($post->content);
@@ -36,8 +37,8 @@ class Post extends Model
             //$post->save();
         });
     }
-  
-    /** 
+
+    /**
      * Write code on Method
      *
      * @return response()
@@ -45,16 +46,16 @@ class Post extends Model
     private function createSlug($title){
         if (static::whereSlug($slug = Str::slug($title))->exists()) {
             $max = static::whereTitle($title)->latest('id')->skip(1)->value('slug');
-  
+
             if (is_numeric($max[-1])) {
                 return preg_replace_callback('/(\d+)$/', function ($mathces) {
                     return $mathces[1] + 1;
                 }, $max);
             }
-  
+
             return "{$slug}-2";
         }
-  
+
         return $slug;
     }
 

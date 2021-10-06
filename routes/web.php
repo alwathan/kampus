@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Models\Menu;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,9 @@ Route::prefix('')->group(function () {
             Route::resources([
                 'users' => App\Http\Controllers\UserController::class
             ]);
+            Route::resources([
+                'settings' => App\Http\Controllers\SettingController::class
+            ]);
             Route::post('upload_image',[PostController::class, 'uploadImage'])->name('upload');
         });
     });
@@ -44,26 +49,6 @@ Route::prefix('')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout']);
 });
-
-Route::get('/image_manipulaton/{name}', function (Request $request){
-
-      // according to path your image file
-      $img = Image::make($request->name);
-
-      //manipulate image
-      $img->resize($request->width, $request->height, function ($constraint) {
-          $constraint->aspectRatio();
-      });
-
-      // create response and add encoded image data
-      $response = Response::make($img->encode('jpg'));
-
-      // set content-type
-      $response->header('Content-Type', 'image/jpg');
-
-      // output
-      return $response;
-  });
 
 Route::get('/rimg/{w}/{h}/{url}', function (Request $request,$url) {
     //
@@ -91,9 +76,21 @@ Route::group(['middleware'=>'CustomCKFinderAuth'], function(){
 
     Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
         ->name('ckfinder_browser');
+
+    Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
+        ->name('ckfinder_examples');
 });
+Route::get('/indeks/{slug}', [App\Http\Controllers\PostController::class, 'indeks']);
+
+$slugs = DB::table('menus')->where('jenis','kategori')->pluck('slug');
+foreach($slugs as $slugs_r){
+    $slugs_a[] = $slugs_r;
+}
+$slugs = implode('|',$slugs_a);
+Route::get('/{slug?}', [App\Http\Controllers\PostController::class, 'indeks'])->where('slug', $slugs);
 
 Route::get('/{slug}', [App\Http\Controllers\MenuController::class, 'show']);
+Route::get('/{kategori}/{slug}', [App\Http\Controllers\PostController::class, 'show']);
 
 
 /*

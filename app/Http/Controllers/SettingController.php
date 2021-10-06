@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Post;
-use Illuminate\Support\Str;
+use App\Models\Setting;
 
-class PostController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,18 +16,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = DB::table('posts')->orderBy('id','desc')->paginate(10);
-
-        //var_dump($posts);
-        return view('admin.posts', compact('posts'));
-    }
-
-    public function indeks($kategori)
-    {
-        //
-        $data = DB::table('posts')->where('type',$kategori)->paginate(10);
-        $kategori = ucwords($kategori);
-        return view('indeks',compact('data', 'kategori'));
+        $collection = DB::select('SELECT * FROM settings ORDER BY id ASC');
+        return view('admin.settings', compact('collection'));
     }
 
     /**
@@ -40,11 +28,6 @@ class PostController extends Controller
     public function create()
     {
         //
-        $data = (array) DB::table('posts')->find(1);
-        $data = array_keys($data);
-        $data = array_fill_keys($data, '');
-        $data = (object) $data;
-        return view('admin.posts-form', compact('data'));
     }
 
     /**
@@ -55,14 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        if(empty($request->id)){
-            Post::create($request->except('_token'));
-            return redirect('/admin/posts')->with('success', 'Berhasil menambahkan data baru!');
-        }else{
-            $post = Post::find($request->id);
-            $post->update($request->except('_token','id'));
-            return redirect()->back()->with('success', 'Berhasil mengupdate data!');
-        }
+        //
     }
 
     /**
@@ -71,11 +47,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($kategori,$slug)
+    public function show($id)
     {
         //
-        $data = DB::table('posts')->where('slug',$slug)->first();
-        return view('baca',compact('data'));
     }
 
     /**
@@ -87,8 +61,6 @@ class PostController extends Controller
     public function edit($id)
     {
         //
-        $data = DB::table('posts')->find($id);
-        return view('admin.posts-form',compact('data'));
     }
 
     /**
@@ -101,6 +73,8 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Setting::where('id',$id)->update($request->except('_token','_method'));
+        return redirect()->back()->with('success', 'Berhasil mengupdate data!');
     }
 
     /**

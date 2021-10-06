@@ -14,15 +14,15 @@
 //ini_set('display_errors', 0);
 
 // Development
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 /*============================ General Settings =======================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html
 
 $config = array();
 
-$config['loadRoutes'] = true;
+$config['loadRoutes'] = false;
 
 $config['authentication'] = '\App\Http\Middleware\CustomCKFinderAuth';
 

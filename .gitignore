@@ -1,9 +1,9 @@
-/kampus/node_modules
+/public_html/kampus/node_modules
 /public_html/hot
 /public_html/storage
 /public_html/userfiles/*
-/kampus/storage/*.key
-/kampus/vendor
+/public_html/kampus/storage/*.key
+/public_html/kampus/vendor
 .env
 .env.backup
 .phpunit.result.cache

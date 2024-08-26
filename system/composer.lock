@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dde787e244d3123cf344e07c1b15ea9",
+    "content-hash": "1a0da8dbaef298cb65d30c67d5993256",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -296,8 +296,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "CKSource\\CKFinderBridge\\": "src/",
-                    "CKSource\\CKFinder\\": "_connector/"
+                    "CKSource\\CKFinder\\": "_connector/",
+                    "CKSource\\CKFinderBridge\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8545,5 +8545,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

@@ -1,6 +1,5 @@
 /system/node_modules
 /hot
-/storage
 /public/userfiles/*
 /system/storage/*.key
 /system/vendor

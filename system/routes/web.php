@@ -86,7 +86,10 @@ $slugs = DB::table('menus')->where('jenis','kategori')->pluck('slug');
 foreach($slugs as $slugs_r){
     $slugs_a[] = $slugs_r;
 }
-$slugs = implode('|',$slugs_a);
+if(!empty($slugs_a)){
+    $slugs = implode('|',$slugs_a);
+}
+
 Route::get('/{slug?}', [App\Http\Controllers\PostController::class, 'indeks'])->where('slug', $slugs);
 
 Route::get('/{slug}', [App\Http\Controllers\MenuController::class, 'show']);

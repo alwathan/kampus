@@ -27,7 +27,7 @@ function kategori_select_input($selected=''){
     }
 }
 
-function menu_select_input($parent_id,$level=0,$active) {
+function menu_select_input($parent_id='',$level=0,$active='') {
     $query = "SELECT * FROM menus  WHERE  parent_id=".$parent_id;
     $res = DB::select($query);
     if(empty($res)) return;

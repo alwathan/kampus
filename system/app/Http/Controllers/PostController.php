@@ -112,5 +112,16 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        //get post by ID
+        $post = Post::findOrFail($id);
+
+        //delete image
+        // Storage::delete('public/posts/'. $post->image);
+
+        //delete post
+        $post->delete();
+
+        //redirect to index
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

@@ -31,7 +31,15 @@
                                             <span><i class="far fa-calendar-alt"></i> {{ Carbon\Carbon::createFromTimeString($post->published_at)->isoFormat('dddd, D MMMM Y') }} </span>
                                             <span><i class="far fa-folder"></i> <a href="/indeks/{{ $post->type }}">{{ ucwords($post->type) }}</a></span>
                                             <span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0">
-                                                <a class='btn btn-outline btn-info btn-xs text-1 text-uppercase' href='/admin/posts/{{ $post->id }}/edit'>Sunting</a> <a class='btn btn-outline btn-danger btn-xs text-1 text-uppercase' href='/admin/posts/create'>Hapus</a>
+                                                <form method="POST" action="/admin/posts/{{$post->id}}">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                            
+                                                    <div class="form-group">
+                                                        <a class='btn btn-outline btn-info btn-xs text-1 text-uppercase' href='/admin/posts/{{ $post->id }}/edit'>Sunting</a> 
+                                                        <input class='btn btn-outline btn-danger btn-xs text-1 text-uppercase' type="submit" class="btn btn-danger delete-user" value="Hapus">
+                                                    </div>
+                                                </form>
                                             </span>
                                         </div>
                                     </div>
